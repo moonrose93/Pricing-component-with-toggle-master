@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@600;700&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | [Pricing-component-with-toggle-master]</title>
+</head>
+<body>
+  <img class="bg-top"  src="/bg-top.svg" alt="bg-top">
+  <img class="bg-bottom"  src="/bg-bottom.svg" alt="bg-bottom">
+  <img class="bg-top-mobile"  src="/bg-top-mobile.png" alt="bg-top-mobile">
+
+  <div class="container">
+    <div class="top">
+      <h1 class="heading">Our Pricing</h1>
+      <div class="toggle-paragraphs">
+        <p>Annually</p>&nbsp;&nbsp;&nbsp;&nbsp;
+        <label class="toggle">
+          <input type="checkbox" id="toggleSlider">
+          <div class="slider"></div>
+      </label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <p>Monthly</p>
+      </div>
+    </div>
+ <div class="monthly" id="monthly">
+  <div class="cards">
+    <div class="card-one" >
+      <h4 class="cards-title" id="cards-title"> Basic</h4>
+      <div class="price-one">
+        <p class="dollar-one">$</p>&nbsp;
+        <h1 class="price" id="price-one">19.99</h1>
+      </div>
+      <div class="statements" id="statements"  >
+      <p class="GB">500 GB Storage</p>
+      <p class="users-allowed"> 2 Users Allowed</p>
+      <p class="send-up"> Send up to 3 GB</p>
+      </div>
+      <button class="btn-one">Learn More</button>
+    </div>
+    <div class="card-two" id="card-two">
+      <h4  class="cards-title2"> Professional</h4>
+      <div class="price-two">
+        <p class="dollar-two">$</p>&nbsp;
+        <h1 class="price-2" id="price-two">24.99</h1>
+      </div>
+      <div class="statements-two" id="statements-two"   >
+        <p class="GB-two">1 TB Storage</p>
+        <p class="users-allowed-two">5 Users Allowed</p>
+        <p class="send-up-two"> Send up to 10 GB</p>
+        </div>
+      <button class="btn-two">Learn More</button>
+    </div>
+    <div class="card-three" id="card-three"  >
+      <h4 class="cards-title"> Master</h4>
+      <div class="price-one">
+        <p class="dollar-one">$</p>&nbsp;
+        <h1 class="price"id="price-three">39.99</h1>
+      </div>
+      <div class="statements">
+        <p class="GB">2 TB Storage</p>
+        <p class="users-allowed"> 10 Users Allowed</p>
+        <p class="send-up"> Send up to 20 GB</p>
+        </div>
+      <button class="btn-one">Learn More</button>
+    </div>
+   </div>
+   
+ </div>
+  </div>
+
+  <script src="script.js"></script>
+  
+
+  
+</body>
+</html>

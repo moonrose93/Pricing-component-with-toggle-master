@@ -1,0 +1,490 @@
+/* Reset some default styles */
+body, html {
+    margin: 0;
+    padding: 0;
+   font-family: sans-serif;
+    background: rgb(252, 247, 255);
+    
+    
+}
+
+.bg-top{
+    position: absolute;
+    left:1470px;
+    width: 450px;
+}
+
+
+
+.container{
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    max-height: 700px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left:50%;
+}
+
+.toggle-paragraphs{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+    color: rgba(63, 60, 60, 0.452);
+    font-weight: 600;
+  
+}
+
+.heading{
+    text-align: center;
+    color: rgba(36, 36, 36, 0.637);
+    font-weight: 700;
+    font-family:  sans-serif;
+}
+
+.top{
+    justify-content: center;
+}
+
+
+/* Style for the toggle container */
+.toggle {
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    height: 34px;
+}
+
+/* Style for the actual checkbox input */
+.toggle input {
+    display: none;
+}
+
+/* Style for the slider - Certainly! This code is responsible for styling the main slider track of the toggle switch. Let's break down each property and its purpose:
+
+1. `position: absolute;`: This positions the slider track absolutely within its parent container. Absolute positioning allows you to place the slider track anywhere within its containing element.
+
+2. `top: 0; left: 0; right: 0; bottom: 0;`: These properties set the position of the slider track to cover the entire area of its parent container. It effectively stretches the slider track to fill the available space horizontally and vertically.
+
+3. `background: linear-gradient(to right, rgb(204, 186, 253), rgb(127, 127, 230));`: This property uses a linear gradient background for the slider track. The `linear-gradient()` function creates a gradient that transitions smoothly between two or more colors along a specified direction. In this case, it's transitioning from a light purple color (rgb(204, 186, 253)) to a darker blue color (rgb(127, 127, 230)) from left to right.
+
+4. `border-radius: 34px;`: This property sets the border-radius of the slider track, giving it rounded edges. This creates a visual effect of a rounded rectangle, making it look like a smooth track.
+
+5. `cursor: pointer;`: This property changes the cursor to a pointer when hovering over the slider track. It indicates to the user that the slider can be interacted with.
+
+6. `transition: background-color 0.4s;`: This property specifies a smooth transition effect for the background color of the slider track. When the background color changes (for example, when the toggle is checked), the transition will take 0.4 seconds to complete, creating a smooth color transition effect.
+
+Overall, this code creates the main visual representation of the toggle switch's track. The track uses a linear gradient to smoothly transition between colors, has rounded edges, and changes appearance smoothly when the toggle is interacted with. */
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:gray;
+    border-radius: 34px;
+    cursor: pointer;
+    transition: background-color 0.4s;
+}
+
+/* Change slider color when toggle is checked (on)- This code snippet is a CSS rule that defines how the appearance of the slider track changes when the toggle input is checked (turned on). Let's break down what each part of the rule does:
+
+1. `input:checked`: This part of the selector targets the `<input>` element with the `checked` attribute. In the context of a toggle switch, this represents the state when the toggle is turned on.
+
+2. `+`: This is the adjacent sibling combinator in CSS. It selects an element that is immediately preceded by a specific element. In this case, it selects the `.slider` element that directly follows the checked `<input>`.
+
+3. `.slider`: This targets the element with the class `slider`. In the context of a toggle switch, this represents the main track of the switch.
+
+4. `background: linear-gradient(to right, rgb(204, 186, 253), rgb(127, 127, 230));`: This property sets the background of the `.slider` element when the toggle is checked. It uses a linear gradient that transitions from a light purple color (rgb(204, 186, 253)) to a darker blue color (rgb(127, 127, 230)) from left to right. This creates a visual effect where the slider track changes color when the toggle is turned on.
+
+So, when the toggle is checked, the `.slider` element's background color changes to the specified linear gradient, providing a visual cue that the toggle is in the "on" state. The linear gradient effect adds a nice touch to the visual interaction of the toggle switch.*/
+input:checked + .slider {
+    background:linear-gradient(to right, rgb(204, 186, 253), rgb(127, 127, 230));
+
+}
+
+
+
+/* Slider knob - Certainly! This part of the code is responsible for styling the knob of the toggle slider. Let's break down each property and its purpose:
+
+1. `content: "";`: This is used to insert content before the element. In this case, it's used to create a circular knob for the toggle slider.
+
+2. `position: absolute;`: This positions the knob absolutely within its parent container (the slider). It allows you to precisely position the knob within the slider.
+
+3. `width: 28px; height: 28px;`: These properties set the dimensions of the knob. In this case, the knob is being styled as a circle, so both width and height are the same to create a circular shape.
+
+4. `background-color: white;`: This property sets the background color of the knob. The knob is styled with a white background color to create a contrast against the slider's background color.
+
+5. `border-radius: 50%;`: This property sets the border-radius to 50%, which creates a circular shape since it's half of the knob's width and height. This makes the knob look like a circle.
+
+6. `top: 3px; left: 3px;`: These properties position the knob within the slider. The knob is positioned 3 pixels from the top and 3 pixels from the left, creating a slight offset from the top-left corner of the slider.
+
+7. `transition: transform 0.4s;`: This property applies a smooth transition effect to the knob's transformation. When the toggle is switched on or off, the knob's position will transition smoothly over 0.4 seconds, creating a visually pleasing animation effect.
+
+This code essentially creates a circular knob for the toggle slider, and it defines its initial position, dimensions, and styling. When the toggle is checked (on), the `transform` property is used to move the knob to the right using the `translateX()` function, creating the effect of the slider being switched on. */
+.slider::before {
+    content: "";
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    background-color: white;
+    border-radius: 50%;
+    top: 3px;
+    left: 3px;
+    transition: transform 0.4s;
+}
+
+
+
+/* Move the slider knob to the right when toggle is checked (on) */
+input:checked + .slider::before {
+    transform: translateX(26px);
+    
+}
+
+
+
+
+/* Additional styles for the unchecked state of the slider */
+.slider {
+    /* ... Existing styles ... */
+    background: gray; /* Default background color */
+  }
+  
+  .slider::before {
+    /* ... Existing styles ... */
+    transform: translateX(0); /* Initial position for unchecked state */
+  }
+  
+  input:not(:checked) + .slider {
+    background:linear-gradient(to right, rgb(204, 186, 253), rgb(127, 127, 230));
+  }
+  
+ 
+  
+  
+  
+
+
+
+.card-one {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Add this line for the shadow */
+}
+.card-two{
+    color: aliceblue;
+    background:linear-gradient(to right, rgb(174, 145, 253), rgb(127, 127, 230));
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Add this line for the shadow */
+
+    
+}
+
+.card-two:hover{
+    transform: scale(1.1);
+}
+.card-three{
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Add this line for the shadow */
+}
+
+.price-two{
+    color: aliceblue;
+    display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-top: -40px;
+   
+
+}
+
+.GB{
+    border-top: 1px solid rgba(190, 189, 189, 0.692);
+    padding-top: 20px;
+
+}
+
+.bg-top-mobile{
+    display: none;
+}
+
+.GB-two{
+    border-top: 1px solid rgba(255, 255, 255, 0.692);
+    padding-top: 20px;
+
+}
+
+.users-allowed{
+    border-top: 1px solid rgba(190, 189, 189, 0.692);
+    padding-top: 20px;
+}
+.users-allowed-two{
+    border-top: 1px solid rgba(255, 255, 255, 0.692);
+    padding-top: 20px;
+}
+
+.send-up{
+    border-top: 1px solid rgba(190, 189, 189, 0.692);
+    padding-top: 20px;
+    border-bottom: 1px solid rgba(190, 189, 189, 0.692);
+    padding-bottom: 15px;
+}
+
+.send-up-two{
+    border-top: 1px solid rgba(255, 255, 255, 0.692);
+    padding-top: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.692);
+    padding-bottom: 15px;
+}
+
+.statements{
+    margin-top: -30px;
+    margin-bottom: 40px;
+    font-weight: 600;
+    color: gray;
+    letter-spacing: 0.05rem;
+}
+
+.statements-two{
+    margin-top: -30px;
+    margin-bottom: 40px;
+    font-weight: 600;
+    color:white;
+    letter-spacing: 0.05rem;
+}
+
+.dollar-one{
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.747);
+   font-family: 'Titillium Web', sans-serif;
+}
+
+.dollar-two{
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.747);
+   font-family: 'Titillium Web', sans-serif;
+}
+
+.price-2{
+    font-size: 4rem;
+    font-family: 'Titillium Web', sans-serif;   display: flex;
+   justify-content: center;
+   align-items: center;
+  
+}
+
+
+
+.btn-one{
+    padding: 15px 100px;
+    text-transform: uppercase;
+    color: rgb(127, 127, 230);
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.06rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.btn-two{
+    padding: 15px 100px;
+    text-transform: uppercase;
+    color: white;
+    background:linear-gradient(to right, rgb(175, 153, 235), rgb(127, 127, 230));
+    border: 1px solid white;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.8rem;  
+    letter-spacing: 0.06rem;
+    font-weight: 700;
+}
+
+.bg-bottom{
+    position: absolute;
+    top:617px;
+    width: 400px;
+}
+
+
+.cards{
+    display: flex;
+    justify-content: center;
+
+   
+}
+
+.price-one{
+  font-family: Arial, Helvetica, sans-serif;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-top: -40px;
+   
+
+}
+
+.card-one,
+.card-two,
+.card-three{
+    padding: 30px;
+    justify-content: center;
+    width: 400px;
+    text-align: center;
+}
+
+.cards-title{
+    color: rgba(0, 0, 0, 0.562);
+    font-size: 1.2rem;
+    margin-top: 6px
+}
+
+.cards-title2{
+    color: rgba(255, 255, 255, 0.801);
+    font-size: 1.2rem;
+    margin-top: 6px
+}
+
+.price{
+    font-size: 4rem;
+    color: #111111c0;
+    font-family: 'Titillium Web', sans-serif;
+
+    font-weight: bold;
+}
+
+
+@media (max-width:480px){
+    
+    
+
+  body{
+    height: auto;
+    width: auto;
+  }
+   .cards{
+   display: grid;
+   }
+
+  
+   .card-one,
+   .card-two,
+   .card-three{
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 80%;
+    margin-left: 5px;
+
+   }
+
+   .card-two:hover{
+    transform: none;
+    }
+
+    .btn-one{
+        padding: 15px 80px;
+        text-transform: uppercase;
+        color: rgb(127, 127, 230);
+        background-color: white;
+        border: 1px solid gray;
+        border-radius: 5px;
+        font-weight: 600;
+        cursor: pointer;
+        letter-spacing: 0.06rem;
+        font-size: 0.8rem;
+        font-weight: 700;
+    }
+    
+    .btn-two{
+        padding: 15px 80px;
+        text-transform: uppercase;
+        color: white;
+        background:linear-gradient(to right, rgb(175, 153, 235), rgb(127, 127, 230));
+        border: 1px solid white;
+        border-radius: 5px;
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 0.8rem;  
+        letter-spacing: 0.06rem;
+        font-weight: 700;
+    }
+
+    .bg-bottom{
+        position: absolute;
+        top:617px;
+        width: 400px;
+        display: none;
+    }
+
+    .bg-top{
+        display: none;
+    }
+    .top{
+        margin-top: 100px;
+    }
+
+    .bg-top-mobile{
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        position: relative;
+        left: 75px;
+    }
+
+    .price-one{
+        font-family: Arial, Helvetica, sans-serif;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         margin-top: -60px;
+         
+      
+      }
+
+      .statements{
+        margin-top: -50px;
+        margin-bottom: 40px;
+        font-weight: 600;
+        color: gray;
+        letter-spacing: 0.05rem;
+    }
+    
+    .statements-two{
+        margin-top: -50px;
+        margin-bottom: 40px;
+        font-weight: 600;
+        color:white;
+        letter-spacing: 0.05rem;
+    }
+
+      .price-two{
+        color: aliceblue;
+        display: flex;
+       justify-content: center;
+       align-items: center;
+       margin-top: -60px;
+
+       
+
+       
+    
+
+
+
+   
+   
+   
+}
+
+
+
+}
